@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+              <h:form >
+            <ui:repeat value="${multiCQHandler.newMCQ}" var="mc">
+                New question:
+                <h:outputText value="#{mc.questionText}"/>
+                <ui:repeat value="#{mc.choises}" var="ch" varStatus="myVarStatus">
+                    <h:column>
+                        <br></br>
+                        Answer option:
+                        <h:outputText value="#{ch.choiseText}"/>
+                        
+                        <h:outputText value="  ${ch.trueOrFalse}"/>
+                    </h:column>
+                </ui:repeat>
+                <br></br>
+            </ui:repeat >
+            <h:commandButton value="Accept question" action="#{multiCQHandler.addQA()}"/>
+            <h:button value="View all available questions" outcome="viewAllQA"/>
+            <h:button value="Back to building question" outcome="createQA"/>
+        </h:form>
+
+    </h:body>
+</html>
+

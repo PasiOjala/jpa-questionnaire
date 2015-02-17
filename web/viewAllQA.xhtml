@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>view all</h1>
+        <h:dataTable var= "QA" value="#{multiCQHandler.allQA}">
+            <h:column>
+
+                <h:outputText value="#{QA.questionText}"/>
+                    <ui:repeat var="c" value="#{QA.choises}">
+                        <h:column>
+                            <h:outputText value="    #{c.choiseText}"/>
+                            <h:outputText value="  #{c.trueOrFalse}"/>
+                            
+                        </h:column>
+                    </ui:repeat>
+            </h:column>
+        </h:dataTable>
+
+    </h:body>
+</html>
+
