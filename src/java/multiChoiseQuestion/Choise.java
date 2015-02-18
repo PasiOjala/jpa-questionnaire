@@ -5,6 +5,7 @@
  */
 package multiChoiseQuestion;
 
+import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 import javax.persistence.Entity;
@@ -15,7 +16,7 @@ import javax.persistence.Id;
 @Named
 @RequestScoped
 @Entity
-    public class Choise {
+    public class Choise implements Serializable {
       private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

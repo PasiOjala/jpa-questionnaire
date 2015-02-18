@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      >
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h1>Create a Quiz</h1>
+        <h:form >
+            <h:inputText value="#{quizHandler.newQuiz.quizName}"/>
+            <br></br>
+            <h:outputText value="Questions:"/>
+            <br></br>
+            <ui:repeat value="#{quizHandler.newQuiz.questionList}" var="mcqs" >
+                <h:outputText value="#{mcqs.questionText}"/>
+            </ui:repeat> 
+            <h:selectOneMenu value="#{quizHandler.}" converter="quiz.quizConverter">
+                <f:selectItems value="#{multiCQHandler.allQA}" />
+            </h:selectOneMenu>
+            <h:commandButton value="Add Question" action="#{quizHandler.newQuiz.addMCQ(mcq)}"/>
+            <h:button value="Submit" />
+        </h:form>
+    </h:body>
+</html>
+

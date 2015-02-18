@@ -2,6 +2,7 @@ package multiChoiseQuestion;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
@@ -57,6 +58,11 @@ public class MultiChoiseQuestion implements Serializable {
     }
 
     public ArrayList<Choise> getChoises() {
+
+        return choises;
+    }
+    public ArrayList<Choise> getChoisesShuffled() {
+        Collections.shuffle(choises);
         return choises;
     }
 
